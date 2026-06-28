@@ -1,0 +1,25 @@
+{
+  "name": "Project Hail Mary",
+  "short_name": "Hail Mary",
+  "description": "Private journal, projects and media — synced to Google Drive",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07100F",
+  "theme_color": "#07100F",
+  "orientation": "portrait-primary",
+  "categories": ["lifestyle", "productivity"],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
