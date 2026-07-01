@@ -23,7 +23,7 @@
   *{box-sizing:border-box}
   html,body{margin:0;height:100%}
   body{background:radial-gradient(1200px 600px at 80% -10%,rgba(43,168,196,.10),transparent 60%),radial-gradient(900px 500px at 0% 110%,rgba(47,212,196,.08),transparent 55%),var(--bg);
-    color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;overflow:hidden}
+    color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;overflow:hidden;overscroll-behavior-y:contain}
   #root{height:100vh}
   button{font-family:inherit;color:inherit;cursor:pointer;border:none;background:none}
   input,textarea,select{font-family:inherit}
@@ -1187,6 +1187,12 @@ function renderShell(){
 function renderHome(){
   var scroll=h('div',{class:'scroll'});var wrap=h('div',{class:'wrap'});
   var v=verseOfDay();var tk=todayKey();
+  wrap.appendChild(h('div',{style:{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'2px'}},
+    h('h2',{class:'title',style:{margin:'0'}},'Home'),
+    h('button',{class:'smallbtn t',onclick:function(){
+      if(!_driveReady){alert('Connect Google Drive first via Menu.');return;}
+      store.loadProjects().then(function(p){if(p)mem.projects=p;refresh();renderShell();});
+    }},'↻ Refresh')));
   wrap.appendChild(h('div',{class:'verse'},'\u201C'+v[1]+'\u201D',h('b',{},v[0]+'  ·  KJV')));
   wrap.appendChild(h('div',{class:'daybar'},h('div',{},h('div',{class:'lab'},'Day counter'),h('div',{style:{color:'var(--muted)',fontSize:'12px',marginTop:'2px'}},'Since 19 Jan 1998')),h('div',{class:'val'},dayNumber(tk).toLocaleString())));
 
@@ -1357,7 +1363,12 @@ function openEditor(d){
 /* ===== PROJECTS ===== */
 function renderProjects(){
   var scroll=h('div',{class:'scroll'});var wrap=h('div',{class:'wrap'});
-  wrap.appendChild(h('h2',{class:'title'},'Projects'));
+  wrap.appendChild(h('div',{style:{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'2px'}},
+    h('h2',{class:'title',style:{margin:'0'}},'Projects'),
+    h('button',{class:'smallbtn t',onclick:function(){
+      if(!_driveReady){alert('Connect Google Drive first via Menu.');return;}
+      store.loadProjects().then(function(p){if(p)mem.projects=p;refresh();renderShell();});
+    }},'↻ Refresh')));
   wrap.appendChild(h('p',{class:'subt'},'Everything you’re working toward — with steps, notes, files, and progress.'));
   var seg='active';
   var segEl=h('div',{class:'seg'});var listEl=h('div',{});
@@ -1767,7 +1778,12 @@ function renderMedia(){
   /* Re-read play counts from Drive whenever the media section opens */
   _syncMediaCounts();
   var scroll=h('div',{class:'scroll'});var wrap=h('div',{class:'wrap'});_countEls={};
-  wrap.appendChild(h('h2',{class:'title'},'Media'));
+  wrap.appendChild(h('div',{style:{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'2px'}},
+    h('h2',{class:'title',style:{margin:'0'}},'Media'),
+    h('button',{class:'smallbtn t',onclick:function(){
+      if(!_driveReady){alert('Connect Google Drive first via Menu.');return;}
+      store.loadMedia().then(function(m){if(m)mem.media=m;refresh();renderShell();});
+    }},'↻ Refresh')));
   if(!PL.trackId){var first=Object.keys(S.tracks).find(function(id){return !S.tracks[id].demo;});if(!first)first=Object.keys(S.tracks)[0];if(first){PL.trackId=first;}}
   var t=PL.trackId?S.tracks[PL.trackId]:null;
   var a=_audio;var playing=a&&!a.paused&&!a.ended;
