@@ -2,7 +2,7 @@
   "name": "Project Hail Mary",
   "short_name": "Hail Mary",
   "description": "Private journal, projects and media — synced to Google Drive",
-  "start_url": "/",
+  "start_url": "/project-hail-mary/",
   "display": "standalone",
   "background_color": "#07100F",
   "theme_color": "#07100F",
