@@ -1,0 +1,8 @@
+{
+  "name": "Project Hail Mary",
+  "description": "Private journal, projects and media — synced to Google Drive",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
