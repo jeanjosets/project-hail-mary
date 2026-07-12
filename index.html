@@ -55,7 +55,7 @@
   @media (max-width:820px){
     .shell{flex-direction:column;max-width:520px}
     .nav{width:auto;order:2;flex-direction:row;justify-content:space-around;border-right:none;border-top:1px solid var(--line-soft);
-      padding:10px 8px calc(10px + env(safe-area-inset-bottom));background:rgba(7,16,15,.9);backdrop-filter:blur(12px)}
+      padding:10px 8px max(16px, calc(10px + env(safe-area-inset-bottom)));background:rgba(7,16,15,.9);backdrop-filter:blur(12px)}
     .brand{display:none}.navspace{display:none}
     .navitem{flex-direction:column;gap:4px;font-size:10px;padding:4px 8px}
     .navitem span.lbl{font-size:10px}
@@ -223,7 +223,7 @@
   textarea.paper::placeholder{color:#3f5957}
   .suggest{display:flex;gap:8px;padding:10px 22px;border-top:1px solid var(--line-soft);background:rgba(14,26,26,.7);overflow-x:auto;min-height:18px}
   .chip{flex:none;padding:8px 15px;border-radius:30px;background:var(--surface-2);border:1px solid var(--line);color:var(--teal);font-weight:700;font-size:14px}
-  .edbar{display:flex;justify-content:space-between;padding:10px 22px calc(14px + env(safe-area-inset-bottom));border-top:1px solid var(--line-soft)}
+  .edbar{display:flex;justify-content:space-between;padding:10px 22px max(20px, calc(14px + env(safe-area-inset-bottom)));border-top:1px solid var(--line-soft)}
   .smallbtn{padding:9px 14px;border-radius:11px;font-weight:700;font-size:13px;color:var(--muted);border:1px solid var(--line-soft)}.smallbtn.t{color:var(--teal);border-color:var(--line)}
   .searchbox{display:flex;align-items:center;gap:10px;background:var(--surface-3);border:1px solid var(--line);border-radius:13px;padding:12px 14px;margin-bottom:14px}
   .searchbox input{flex:1;background:none;border:none;outline:none;color:var(--text);font-size:15.5px}
