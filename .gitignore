@@ -1,0 +1,10 @@
+node_modules/
+test-results/
+playwright-report/
+
+# local working files, not part of the deployed app
+index.backup*.html
+index.beforecleanup.html
+index.pullrefresh.html
+.DS_Store
+graphify-out/

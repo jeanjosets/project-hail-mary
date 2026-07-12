@@ -1,0 +1,12 @@
+{
+  "name": "project-hail-mary-tests",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Automated Playwright tests for Project Hail Mary (index.html). Not part of the deployed app.",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1"
+  }
+}
