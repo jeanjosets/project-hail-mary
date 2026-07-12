@@ -1,4 +1,4 @@
-const CACHE = 'phm-v3';
+const CACHE = 'phm-v4';
 const CORE = ['/', '/index.html', '/manifest.json', '/icon-192.png', '/icon-512.png'];
 
 self.addEventListener('install', e => {

@@ -2392,9 +2392,22 @@ renderLock();
 </script>
 <script src="https://accounts.google.com/gsi/client" onload="_gisLoaded()" async defer></script>
 <script>
+/* ===== FEATURE: proactive service-worker update checks =====
+   sw.js already fetches fresh HTML whenever online (network-first for
+   navigation). What's missing is anything that actively asks "is there a
+   newer service worker?" instead of waiting on the browser's own check,
+   which it can delay up to 24h — and an Android app resumed from the
+   recent-apps switcher may not trigger a fresh navigation at all, so even
+   that passive check can be skipped. This makes the check happen on every
+   open and every return to the foreground, so by the time the app is
+   next closed and reopened, the newest version is already active. */
 if('serviceWorker' in navigator){
   window.addEventListener('load',function(){
     navigator.serviceWorker.register('/sw.js').then(function(r){
+      r.update();
+      document.addEventListener('visibilitychange',function(){
+        if(!document.hidden) r.update();
+      });
     }).catch(function(e){  });
   });
 }
